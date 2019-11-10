@@ -39,7 +39,7 @@ const APP: () = {
     // only pressed once
     #[task(binds = GPIOTE)]
     fn gpiote(_: gpiote::Context) {
-        cortex_m::peripheral::NVIC::unpend(hal::target::Interrupt::GPIOTE);
+        hal::target::NVIC::unpend(hal::target::Interrupt::GPIOTE);
         hprintln!("GPIO Interrupt Triggered").unwrap();
     }
 };
